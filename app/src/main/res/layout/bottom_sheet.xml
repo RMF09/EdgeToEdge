@@ -12,20 +12,20 @@
     app:behavior_hideable="true"
     app:behavior_peekHeight="42dp"
     tools:showIn="@layout/activity_third"
-    tools:context=".ThirdActivity"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <View
         android:id="@+id/toggle_bs"
         android:layout_width="80dp"
         android:layout_height="8dp"
-        android:background="@drawable/toogle_bs"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:alpha="0.12"/>
+        android:alpha="0.12"
+        android:background="@drawable/toogle_bs" />
 
 
     <LinearLayout
+        android:id="@+id/linearContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -43,6 +43,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Budiman "
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearContent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearContent"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Umur"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 tahun "
             android:textSize="18sp"
             android:layout_weight="1"
             android:textAlignment="textEnd"/>

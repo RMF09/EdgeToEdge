@@ -4,10 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdActivity">
+    tools:context=".ThirdActivity"
+    android:background="@color/purple_500">
 
 
+   <TextView
+       android:id="@+id/text"
+       android:text="asdas"
+       android:textColor="@color/white"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:textSize="18sp"/>
    <include
-       android:id="@+id/inc_bs"
+       android:id="@+id/inc_bss"
        layout="@layout/bottom_sheet"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

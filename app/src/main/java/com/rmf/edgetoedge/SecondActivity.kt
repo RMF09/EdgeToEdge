@@ -2,7 +2,9 @@ package com.rmf.edgetoedge
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.*
 import com.rmf.edgetoedge.databinding.ActivitySecondBinding
 
@@ -13,15 +15,27 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
-        WindowCompat.setDecorFitsSystemWindows(window,false)
+        setFullscreen(window)
+        lightStatusBar(window)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root){ view, windowInsets ->
-            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+        val toolbarTopPadding = binding.toolbar.paddingTop
 
-            view.updateLayoutParams<ViewGroup.MarginLayoutParams>{
-                this.updateMargins(left = insets.left, bottom = insets.bottom, right = insets.right)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.fab) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+
+            view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                this.updateMargins(
+                    left = insets.left,
+                    bottom = insets.bottom + 40,
+                    right = insets.right + view.marginEnd
+                )
+
             }
+            //update toolbar
+            val insetsSB = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newToolbarTopPadding = insetsSB.top + toolbarTopPadding
+            binding.toolbar.updatePadding(top = newToolbarTopPadding+40, bottom= 60)
 
 
             WindowInsetsCompat.CONSUMED
