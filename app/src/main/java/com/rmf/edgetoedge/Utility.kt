@@ -8,7 +8,8 @@ fun setFullscreen(window: Window){
     WindowCompat.setDecorFitsSystemWindows(window,false)
 }
 
-fun lightStatusBar(window: Window, isLight: Boolean =true){
+fun lightStatusBar(window: Window, isLight: Boolean =true,isLightNav: Boolean =true){
     val wic = WindowInsetsControllerCompat(window,window.decorView)
     wic.isAppearanceLightStatusBars = isLight
+    wic.isAppearanceLightNavigationBars = isLightNav
 }
